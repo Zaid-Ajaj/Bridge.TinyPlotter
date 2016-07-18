@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A7CE4279-77D9-493A-8432-B7B77CA5F555}</ProjectGuid>
+    <ProjectGuid>{031F4657-A818-47ED-A36D-61BA73D1A829}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bridge.TinyPlotter</RootNamespace>
-    <AssemblyName>Bridge.TinyPlotter</AssemblyName>
+    <RootNamespace>Bridge.TinyPlotter.Examples</RootNamespace>
+    <AssemblyName>Bridge.TinyPlotter.Examples</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -44,9 +44,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PlotSettings.cs" />
-    <Compile Include="Structures.cs" />
-    <Compile Include="TinyPlotter.cs" />
+    <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,12 +52,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Bridge\output\bridge.js" />
-    <Content Include="Bridge\output\bridge.min.js" />
-    <Content Include="Bridge\output\bridge.tinyPlotter.js" />
-    <Content Include="Bridge\output\bridge.tinyPlotter.min.js" />
     <Content Include="Bridge\output\readme.txt" />
     <Content Include="Bridge\www\demo.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bridge.TinyPlotter\Bridge.TinyPlotter.csproj">
+      <Project>{a7ce4279-77d9-493a-8432-b7b77ca5f555}</Project>
+      <Name>Bridge.TinyPlotter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Bridge.Min.1.14.0\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.1.14.0\build\Bridge.Min.targets')" />

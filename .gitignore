@@ -243,3 +243,9 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Bridge.TinyPlotter.Examples/Bridge/output/bridge.js
+/Bridge.TinyPlotter.Examples/Bridge/output/bridge.min.js
+/Bridge.TinyPlotter.Examples/Bridge/output/bridge.tinyPlotter.examples.js
+/Bridge.TinyPlotter.Examples/Bridge/output/bridge.tinyPlotter.examples.min.js
+/Bridge.TinyPlotter.Examples/Bridge/output/bridge.tinyPlotter.js
+/Bridge.TinyPlotter.Examples/Bridge/output/bridge.tinyPlotter.min.js

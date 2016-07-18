@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Bridge.TinyPlotter
 {
     /// <summary>
-    /// A minimalistic plotter for single variable functions.
+    /// A minimalistic plotter for single variable functions. 
     /// </summary>
     public class TinyPlotter
     {
@@ -45,7 +45,20 @@ namespace Bridge.TinyPlotter
             InitializePlot();
         }
 
-        TinyPlotter(params Func<double, double>[] functions)
+        public void SetViewport(double xmin, double xmax, double ymin, double ymax)
+        {
+            Settings.XMin = xmin;
+            Settings.XMax = xmax;
+            Settings.YMin = ymin;
+            Settings.YMax = ymax;
+        }
+
+        public TinyPlotter()
+        {
+            InitializePlot();
+        }
+
+        public TinyPlotter(params Func<double, double>[] functions)
         {
             var black = new Color { Red = 0, Green = 0, Blue = 0 };
             foreach(var func in functions)

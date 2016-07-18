@@ -17,11 +17,11 @@
                 this.settings = { curves: new System.Collections.Generic.List$1(Object)(), drawBorder: true, drawXAxis: true, drawYAxis: true, height: 500, width: 800, deltaX: 0.01, xMin: -10, xMax: 10, yMin: -10, yMax: 10 };
             }
         },
-        constructor: function (settings) {
+        constructor$1: function (settings) {
             this.settings = settings;
             this.initializePlot();
         },
-        constructor$2: function (f, xmin, xmax, ymin, ymax) {
+        constructor$3: function (f, xmin, xmax, ymin, ymax) {
             var black = { red: 0, green: 0, blue: 0 };
             this.settings.curves.add({ map: f, color: black });
             this.settings.xMin = xmin;
@@ -30,7 +30,10 @@
             this.settings.yMax = ymax;
             this.initializePlot();
         },
-        constructor$3: function (functions) {
+        constructor: function () {
+            this.initializePlot();
+        },
+        constructor$4: function (functions) {
             if (functions === void 0) { functions = []; }
             var $t;
     
@@ -43,12 +46,18 @@
             }
             this.initializePlot();
     },
-    constructor$1: function (f, xmin, xmax) {
+    constructor$2: function (f, xmin, xmax) {
         var black = { red: 0, green: 0, blue: 0 };
         this.settings.curves.add({ map: f, color: black });
         this.settings.xMin = xmin;
         this.settings.xMax = xmax;
         this.initializePlot();
+    },
+    setViewport: function (xmin, xmax, ymin, ymax) {
+        this.settings.xMin = xmin;
+        this.settings.xMax = xmax;
+        this.settings.yMin = ymin;
+        this.settings.yMax = ymax;
     },
     initializePlot: function () {
         this.canvas = document.createElement('canvas');
