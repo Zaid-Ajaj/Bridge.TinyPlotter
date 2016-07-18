@@ -12,7 +12,6 @@ namespace Bridge.TinyPlotter
         // by default;
         public PlotSettings Settings = new PlotSettings
         {
-            Curves = new List<Curve>(),
             DrawBorder = true,
             DrawXAxis = true,
             DrawYAxis = true,
@@ -24,6 +23,11 @@ namespace Bridge.TinyPlotter
             YMin = -10,
             YMax = 10 
         };
+
+        /// <summary>
+        /// The curves to draw on the canvas
+        /// </summary>
+        public List<Curve> Curves = new List<Curve>();
 
 
         public HTMLCanvasElement Canvas;
@@ -37,7 +41,7 @@ namespace Bridge.TinyPlotter
         public TinyPlotter(Func<double, double> f, double xmin, double xmax, double ymin, double ymax)
         {
             var black = new Color { Red = 0, Green = 0, Blue = 0 };
-            Settings.Curves.Add(new Curve { Map = f, Color = black });
+            Curves.Add(new Curve { Map = f, Color = black });
             Settings.XMin = xmin;
             Settings.XMax = xmax;
             Settings.YMin = ymin;
@@ -64,7 +68,7 @@ namespace Bridge.TinyPlotter
             foreach(var func in functions)
             {
                 var curve = new Curve { Color = black, Map = func };
-                Settings.Curves.Add(curve);
+                Curves.Add(curve);
             }
             InitializePlot();
         }
@@ -72,7 +76,7 @@ namespace Bridge.TinyPlotter
         public TinyPlotter(Func<double, double> f, double xmin, double xmax)
         {
             var black = new Color { Red = 0, Green = 0, Blue = 0 };
-            Settings.Curves.Add(new Curve { Map = f, Color = black });
+            Curves.Add(new Curve { Map = f, Color = black });
             Settings.XMin = xmin;
             Settings.XMax = xmax;
             InitializePlot();
@@ -114,7 +118,7 @@ namespace Bridge.TinyPlotter
             if (Settings.DrawXAxis)
                 DrawYAxis(image);
 
-            foreach (var curve in Settings.Curves)
+            foreach (var curve in Curves)
                 DrawCurve(curve, image);
 
             ctx.PutImageData(image, 0, 0);

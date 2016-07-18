@@ -6,10 +6,6 @@ namespace Bridge.TinyPlotter
     public class PlotSettings
     {
         /// <summary>
-        /// The curves to draw on the canvas
-        /// </summary>
-        public List<Curve> Curves;
-        /// <summary>
         /// The delta x defines the spacing between points on the x-axis.
         /// </summary>
         public double DeltaX;
